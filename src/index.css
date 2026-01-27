@@ -1,0 +1,691 @@
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(184, 91%, 17%);
+  --clr-primary-2: hsl(185, 84%, 25%);
+  --clr-primary-3: hsl(185, 81%, 29%);
+  --clr-primary-4: hsl(184, 77%, 34%);
+  --clr-primary-5: #2caeba;
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(185, 57%, 50%);
+  --clr-primary-7: hsl(184, 65%, 59%);
+  --clr-primary-8: hsl(184, 80%, 74%);
+  --clr-primary-9: hsl(185, 94%, 87%);
+  --clr-primary-10: hsl(186, 100%, 94%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*  global classes */
+
+/* section */
+.section {
+  width: 90vw;
+  margin: 5rem auto;
+  max-width: var(--max-width);
+}
+
+@media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+}
+
+.loading {
+  text-align: center;
+}
+
+.underline {
+  width: 5rem;
+  height: 0.25rem;
+  margin-bottom: 1.25rem;
+  background: var(--clr-primary-5);
+  margin-left: auto;
+  margin-right: auto;
+}
+.title {
+  margin-bottom: 4rem;
+  text-align: center;
+  position: relative;
+}
+
+.title h2 {
+  color: var(--clr-grey-1);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.title h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--clr-primary-5),
+    var(--clr-primary-7)
+  );
+  border-radius: 2px;
+}
+
+.underline {
+  display: none; /* Hide the old underline since we have a new one */
+}
+
+.subtitle {
+  color: var(--clr-grey-5);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/*
+===============
+Jobs - Enhanced UI/UX
+===============
+*/
+
+.jobs-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  background: var(--clr-white);
+  border-radius: 12px;
+  box-shadow: var(--light-shadow);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.job-btn {
+  background: linear-gradient(
+    135deg,
+    var(--clr-grey-9) 0%,
+    var(--clr-grey-8) 100%
+  );
+  border: 2px solid transparent;
+  text-transform: capitalize;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: var(--spacing);
+  margin: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  line-height: 1;
+  outline: none;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  /* Consistente breedte voor alle buttons */
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.job-btn:hover::before {
+  left: 100%;
+}
+
+.job-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    135deg,
+    var(--clr-grey-8) 0%,
+    var(--clr-grey-7) 100%
+  );
+}
+
+.btn-icon {
+  font-size: 0.9rem;
+  color: var(--clr-primary-5);
+  transition: transform 0.3s ease;
+}
+
+.job-btn:hover .btn-icon {
+  transform: scale(1.1);
+}
+
+.btn-text {
+  font-weight: 600;
+  color: var(--clr-grey-2);
+  flex: 1;
+  text-align: center;
+  /* Zorg ervoor dat lange tekst niet buiten de button valt */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.active-btn {
+  background: linear-gradient(
+    135deg,
+    var(--clr-primary-5) 0%,
+    var(--clr-primary-6) 100%
+  );
+  color: var(--clr-white);
+  box-shadow: 0 4px 20px rgba(44, 174, 186, 0.4);
+  transform: translateY(-2px);
+}
+
+.active-btn .btn-text {
+  color: var(--clr-white);
+}
+
+.active-btn .btn-icon {
+  color: var(--clr-white);
+}
+
+.active-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: var(--clr-white);
+  border-radius: 2px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Job Info Styling */
+.job-info {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.job-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--clr-grey-9);
+}
+
+.job-title-section {
+  margin-bottom: 1rem;
+}
+
+.job-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--clr-grey-1);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.job-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--clr-primary-5);
+  border-radius: 2px;
+}
+
+.company-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--clr-primary-9) 0%,
+    var(--clr-primary-8) 100%
+  );
+  color: var(--clr-primary-2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(44, 174, 186, 0.2);
+}
+
+.company-icon {
+  font-size: 0.8rem;
+}
+
+.job-date-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--clr-grey-5);
+  font-weight: 500;
+}
+
+.date-icon {
+  color: var(--clr-primary-5);
+  font-size: 0.9rem;
+}
+
+.job-duties {
+  margin-top: 1.5rem;
+}
+
+.duties-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--clr-grey-2);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.duties-title::before {
+  content: "📋";
+  font-size: 1.2rem;
+}
+
+.duties-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.job-desc {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0;
+  padding: 0.75rem;
+  background: var(--clr-grey-10);
+  border-radius: 8px;
+  border-left: 4px solid var(--clr-primary-5);
+  transition: all 0.3s ease;
+  animation: slideInLeft 0.6s ease-out both;
+}
+
+.job-desc:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: var(--clr-white);
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.job-icon {
+  color: var(--clr-primary-5);
+  font-size: 1rem;
+  margin-top: 0.1rem;
+  transition: transform 0.3s ease;
+}
+
+.job-desc:hover .job-icon {
+  transform: scale(1.2);
+}
+
+.duty-text {
+  margin-bottom: 0;
+  color: var(--clr-grey-3);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Actions Section */
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.primary-btn {
+  background: linear-gradient(
+    135deg,
+    var(--clr-primary-5) 0%,
+    var(--clr-primary-6) 100%
+  );
+  color: var(--clr-primary-9);
+  padding: 0.75rem 2rem;
+  letter-spacing: var(--spacing);
+  font-weight: 700;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(44, 174, 186, 0.3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: none;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(44, 174, 186, 0.4);
+  background: linear-gradient(
+    135deg,
+    var(--clr-primary-6) 0%,
+    var(--clr-primary-7) 100%
+  );
+}
+
+.primary-btn .btn-icon {
+  font-size: 1rem;
+}
+
+.navigation-hint {
+  font-size: 0.85rem;
+  color: var(--clr-grey-5);
+  font-style: italic;
+  text-align: center;
+}
+
+.navigation-hint span {
+  background: var(--clr-grey-9);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid var(--clr-grey-8);
+}
+
+/* Alternatieve layout opties voor consistente buttons */
+/* Uncomment deze CSS om een grid layout te gebruiken voor perfect uitgelijnde buttons */
+/*
+.btn-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+
+.job-btn {
+  flex: none;
+  width: 100%;
+}
+*/
+
+/* Verbeterde button consistentie voor mobiel */
+@media screen and (max-width: 767px) {
+  .btn-container {
+    gap: 0.5rem;
+  }
+
+  .job-btn {
+    width: 160px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-icon {
+    font-size: 0.8rem;
+  }
+}
+.jobs-center {
+  width: 85vw;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  column-gap: 3rem;
+  padding: 3rem;
+}
+
+.btn-container {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.75rem;
+}
+
+.job-btn {
+  margin-bottom: 0;
+  min-width: 200px;
+  padding: 1rem 1.5rem;
+}
+
+.active-btn {
+  box-shadow: -4px 0 20px rgba(44, 174, 186, 0.4);
+}
+
+.job-btn:hover {
+  box-shadow: -4px 0 20px rgba(44, 174, 186, 0.3);
+}
+
+.actions {
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.navigation-hint {
+  text-align: right;
+}
+
+@media screen and (min-width: 992px) {
+  .jobs-center {
+    width: 90vw;
+    column-gap: 4rem;
+  }
+
+  .btn-container {
+    gap: 1rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .job-btn,
+  .job-desc,
+  .primary-btn,
+  .job-info {
+    animation: none;
+    transition: none;
+  }
+
+  .job-btn:hover,
+  .job-desc:hover,
+  .primary-btn:hover {
+    transform: none;
+  }
+}
+
+.job-content {
+  position: relative;
+  min-height: 400px;
+}
+
+.job-content.transitioning .job-info {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.15s ease-out;
+}
+
+.job-content:not(.transitioning) .job-info {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-out;
+}
+.btn {
+  text-transform: uppercase;
+  background: var(--clr-primary-5);
+  color: var(--clr-primary-9);
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  font-weight: 700;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
+  display: block;
+  width: 12rem;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+.btn:hover {
+  color: var(--clr-primary-1);
+  background: var(--clr-primary-8);
+}
