@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { IJOB } from "./types";
 import { jobsData } from "./data/jobs";
 import JobButtons from "./components/JobButtons";
@@ -11,7 +11,7 @@ function App() {
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
   // Handle job switching with transition
-  const handleJobChange = (newValue: number) => {
+  const handleJobChange = useCallback((newValue: number) => {
     if (newValue !== value) {
       setIsTransitioning(true);
       setTimeout(() => {
@@ -19,7 +19,7 @@ function App() {
         setIsTransitioning(false);
       }, 150);
     }
-  };
+  }, [value]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -37,7 +37,7 @@ function App() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [jobs.length, value]);
+  }, [jobs.length, value, handleJobChange]);
 
   return (
     <section className="section">
